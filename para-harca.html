@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Para Harca</title></head>
+<body>
+<h1>💰 Para: <span id="money"></span></h1>
+<button onclick="buy(1000000,'Araba')">🚗 Araba - 1.000.000</button>
+<button onclick="buy(50000,'Telefon')">📱 Telefon - 50.000</button>
+<ul id="inv"></ul>
+<script>
+let money=Number(localStorage.money||100000000000);
+let inv=JSON.parse(localStorage.inv||"[]");
+function update(){
+moneySpan=document.getElementById("money");
+moneySpan.innerText=money.toLocaleString("tr-TR")+" TL";
+document.getElementById("inv").innerHTML=inv.map(x=>"<li>"+x+"</li>").join("");
+localStorage.money=money;
+localStorage.inv=JSON.stringify(inv);
+}
+function buy(price,name){
+if(money>=price){money-=price;inv.push(name);update();}
+}
+update();
+</script></body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Şans Kutusu</title></head>
+<body>
+<h1>🎁 Şans Kutusu</h1>
+<h2>Coin: <span id="c"></span></h2>
+<button onclick="openBox()">Kutuyu Aç</button>
+<script>
+function update(){
+document.getElementById("c").innerText=Number(localStorage.coin||0);
+}
+function openBox(){
+let r=Math.random();
+let coin=Number(localStorage.coin||0);
+if(r<0.4){coin+=50;alert("+50 coin");}
+else if(r<0.8){coin+=100;alert("+100 coin");}
+else{alert("Boş çıktı 😅");}
+localStorage.coin=coin;
+update();
+}
+update();
+</script></body></html>
