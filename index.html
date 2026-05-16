@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Dursun Oyun Sitesi</title>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background:#222;
+color:white;
+}
+
+button{
+padding:15px;
+margin:10px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.box{
+background:#333;
+padding:20px;
+margin:20px auto;
+width:300px;
+border-radius:15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎮 Dursun Oyun Sitesi</h1>
+
+<h2>🪙 Coin: <span id="coin">0</span></h2>
+
+<div class="box">
+
+<h3>💰 Para Harca Oyunu</h3>
+<a href="para-harca.html">
+<button>Oyna</button>
+</a>
+
+</div>
+
+<div class="box">
+
+<h3>🧠 Matematik Oyunu</h3>
+<a href="matematik-oyunu.html">
+<button>Oyna</button>
+</a>
+
+</div>
+
+<div class="box">
+
+<h3>🎁 Şans Kutusu</h3>
+<a href="sans-kutusu.html">
+<button>Oyna</button>
+</a>
+
+</div>
+
+<script>
+
+function coinGuncelle(){
+
+let coin=Number(localStorage.coin || 0);
+
+document.getElementById("coin").innerText=
+coin.toLocaleString("tr-TR");
+
+}
+
+coinGuncelle();
+
+setInterval(coinGuncelle,1000);
+
+</script>
+
+</body>
+</html>
